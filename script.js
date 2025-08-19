@@ -122,3 +122,23 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('MenstruationEdu website initialized successfully!');
     console.log('Available tabs:', Array.from(tabTriggers).map(t => t.getAttribute('data-tab')));
 });
+function openSubTab(evt, tabId) {
+  // Hide all subtabs
+  const contents = document.querySelectorAll(".subtab-content");
+  contents.forEach(c => c.style.display = "none");
+
+  // Remove 'active' from all buttons
+  const buttons = document.querySelectorAll(".subtab-button");
+  buttons.forEach(b => b.classList.remove("active"));
+
+  // Show the selected tab
+  document.getElementById(tabId).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
+// Default: show Anatomy first
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".subtab-content").forEach((c, i) => {
+    c.style.display = i === 0 ? "block" : "none";
+  });
+});
