@@ -2,40 +2,35 @@
 <html lang="en">
 <head>
   <!--
-    MenstruationEdu — Combined Index
-    - Merges your two HTML versions (simple anchor nav + card/tabs UI)
-    - Keeps full content: Video Demo, Products, Hygiene, Health Info, Anatomy (with sub-tabs), Q&A
-    - Adds the <figure> citation block you requested for the anatomy diagram
-    - Cleans up duplicate script/style tags and fixes Lucide import
-    - Uses accessible, semantic structure with landmarks
+    MenstruationEdu – Combined Full Index
+    Assets to place in the SAME folder as this index.html:
+    - styles.css
+    - script.js
+    - girl-scouts-logo.png
+    - anatomy-diagram.png
+    - demo.mp4
+
+    Note:
+    • Keep the video as MP4 (demo.mp4). Images can be PNG/JPG – your files are PNG, so this file references .png.
   -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MenstruationEdu — Your Guide to Menstrual Health</title>
-
-  <!-- Stylesheet -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MenstruationEdu - Your Guide to Menstrual Health</title>
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Lucide icons (JS, not a stylesheet) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Preload optional video thumbnail (if you add one) -->
-  <!-- <link rel="preload" as="image" href="video-thumbnail.jpg"> -->
+  <!-- Lucide icon runtime (no CSS needed) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
-  <!-- Floating Girl Scouts badge (kept from your newer version) -->
-  <aside class="girl-scouts-logo" aria-label="Girl Scouts Gold Award badge">
+  <!-- Corner Badge: Girl Scouts -->
+  <aside class="girl-scouts-logo" aria-label="Girl Scouts Gold Award">
     <div class="logo-container">
-      <img src="https://images.unsplash.com/photo-1587653394453-7692616605ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnaXJsJTIwc2NvdXRzJTIwbG9nbyUyMGJhZGdlfGVufDF8fHx8MTc1NTM4OTExNHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Girl Scouts Gold Award" />
+      <img src="girl-scouts-logo.png" alt="Girl Scouts Logo" />
     </div>
     <p class="logo-text">Girl Scouts Gold Award</p>
   </aside>
 
-  <!-- Site Header with primary navigation (anchors jump to sections) -->
-  <header class="header site-header" role="banner">
+  <!-- Site Header -->
+  <header class="header" role="banner">
     <div class="container">
       <div class="header-content">
         <div class="logo-icon" aria-hidden="true">
@@ -46,163 +41,152 @@
           <p class="subtitle">Your comprehensive guide to menstrual health and hygiene</p>
         </div>
       </div>
-
-      <!-- Primary anchor nav (kept from your first version) -->
-      <nav class="primary-nav" aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="#video">Video Demo</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#hygiene">Hygiene</a></li>
-          <li><a href="#health">Health Info</a></li>
-          <li><a href="#anatomy">Anatomy</a></li>
-          <li><a href="#qa">Q&amp;A</a></li>
-        </ul>
-      </nav>
     </div>
+
+    <!-- Primary Nav (anchors jump to tab panels) -->
+    <nav class="primary-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="#demo" data-tab-link="demo">Video Demo</a></li>
+        <li><a class="nav-link" href="#products" data-tab-link="products">Products</a></li>
+        <li><a class="nav-link" href="#hygiene" data-tab-link="hygiene">Hygiene</a></li>
+        <li><a class="nav-link" href="#health" data-tab-link="health">Health Info</a></li>
+        <li><a class="nav-link" href="#anatomy" data-tab-link="anatomy">Anatomy</a></li>
+        <li><a class="nav-link" href="#qa" data-tab-link="qa">Ask a Doctor</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main content wrapper -->
-  <main id="main" class="main-content" tabindex="-1">
-    <!--
-      SECTION: Video Demo
-      - id matches header anchors
-    -->
-    <section id="video" class="section section-demo" aria-labelledby="video-heading">
-      <div class="container">
-        <h2 id="video-heading" class="visually-hidden">Video Demo</h2>
+  <main class="main-content" role="main">
+    <!-- Tabs -->
+    <section class="tabs-container" aria-label="MenstruationEdu content tabs">
+      <div class="tabs-list" role="tablist" aria-label="Sections">
+        <button class="tab-trigger active" role="tab" aria-selected="true" aria-controls="demo" id="tab-demo" data-tab="demo">Video Demo</button>
+        <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="products" id="tab-products" data-tab="products">Products</button>
+        <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="hygiene" id="tab-hygiene" data-tab="hygiene">Hygiene</button>
+        <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="health" id="tab-health" data-tab="health">Health Info</button>
+        <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="anatomy" id="tab-anatomy" data-tab="anatomy">Anatomy</button>
+        <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="qa" id="tab-qa" data-tab="qa">Ask a Doctor</button>
+      </div>
 
-        <div class="tabs-container" data-tabs-root>
-          <!-- Tabs list (from your newer card/tabs UI, kept for intra-section UX) -->
-          <div class="tabs-list" role="tablist" aria-label="Demo Tabs">
-            <button class="tab-trigger active" role="tab" aria-selected="true" aria-controls="tab-demo-video" id="tab-demo-video-trigger" data-tab="tab-demo-video">Video Demo</button>
-            <button class="tab-trigger" role="tab" aria-selected="false" aria-controls="tab-demo-steps" id="tab-demo-steps-trigger" data-tab="tab-demo-steps">Step-by-Step</button>
-          </div>
+      <!-- TAB: Video Demo -->
+      <article class="tab-content active" id="demo" role="tabpanel" aria-labelledby="tab-demo" tabindex="0">
+        <div class="demo-grid">
+          <!-- How to Use a Pad (Video) -->
+          <section class="card" aria-labelledby="pad-video-title">
+            <div class="card-header">
+              <h2 class="card-title pink" id="pad-video-title">How to Use a Pad</h2>
+              <p class="card-description">Watch this step-by-step demonstration video</p>
+            </div>
+            <div class="card-content">
+              <div class="video-placeholder">
+                <video class="video-element" controls playsinline preload="metadata" poster="">
+                  <!-- Place your MP4 file next to index.html -->
+                  <source src="demo.mp4" type="video/mp4" />
+                  <!-- Optional: add a webm if you have it
+                  <source src="demo.webm" type="video/webm" />
+                  -->
+                  Your browser does not support the video tag.
+                </video>
 
-          <!-- TAB: Video Demo -->
-          <div class="tab-content active" id="tab-demo-video" role="tabpanel" aria-labelledby="tab-demo-video-trigger">
-            <div class="demo-grid">
-              <article class="card" aria-label="How to Use a Pad - Video">
-                <div class="card-header">
-                  <h3 class="card-title pink">How to Use a Pad</h3>
-                  <p class="card-description">Watch this step-by-step demonstration video</p>
-                </div>
-                <div class="card-content">
-                  <div class="video-placeholder">
-                    <video controls class="video-element" poster="video-thumbnail.jpg">
-                      <source src="./pad-demonstration-video.mp4" type="video/mp4" />
-                      <source src="./pad-demonstration-video.webm" type="video/webm" />
-                      Your browser does not support the video tag.
-                    </video>
-
-                    <!-- Fallback panel shown by CSS when video sources are missing -->
-                    <div class="video-fallback" aria-live="polite">
-                      <i data-lucide="play" class="play-icon" aria-hidden="true"></i>
-                      <p class="video-text">Instructional Video</p>
-                      <div class="info-box" role="note" aria-label="How to add your video">
-                        <div class="info-content">
-                          <i data-lucide="info" class="info-icon" aria-hidden="true"></i>
-                          <div class="info-text">
-                            <p><strong>To add your video:</strong></p>
-                            <ol>
-                              <li>Save your video as <code>pad-demonstration-video.mp4</code></li>
-                              <li>Put it in the <em>same folder</em> as <code>index.html</code></li>
-                              <li>Optionally add a thumbnail named <code>video-thumbnail.jpg</code></li>
-                            </ol>
-                          </div>
-                        </div>
+                <!-- Fallback helper (shows only if video fails or is omitted by browser) -->
+                <div class="video-fallback" aria-hidden="true">
+                  <i data-lucide="play" class="play-icon"></i>
+                  <p class="video-text">Instructional Video</p>
+                  <div class="info-box">
+                    <div class="info-content">
+                      <i data-lucide="info" class="info-icon"></i>
+                      <div class="info-text">
+                        <p><strong>To add your video:</strong></p>
+                        <p>1. Save your video as <code>demo.mp4</code></p>
+                        <p>2. Put it in the same folder as <code>index.html</code></p>
+                        <p>3. (Optional) Add a poster image and reference it with the <code>poster</code> attribute</p>
                       </div>
                     </div>
                   </div>
-
-                  <aside class="tips-box" aria-label="Quick Tips for Pads">
-                    <h4>Quick Tips</h4>
-                    <ul>
-                      <li>Change your pad every 4–6 hours</li>
-                      <li>Wash hands before and after changing</li>
-                      <li>Dispose of used pads responsibly</li>
-                      <li>Keep extra pads in your bag</li>
-                    </ul>
-                  </aside>
                 </div>
-              </article>
+              </div>
+
+              <aside class="tips-box" aria-label="Quick pad tips">
+                <h3>Quick Tips:</h3>
+                <ul>
+                  <li>• Change your pad every 4–6 hours</li>
+                  <li>• Always wash hands before and after</li>
+                  <li>• Dispose of used pads responsibly</li>
+                  <li>• Keep extra pads in your bag</li>
+                </ul>
+              </aside>
             </div>
-          </div>
+          </section>
 
-          <!-- TAB: Step-by-Step Instructions -->
-          <div class="tab-content" id="tab-demo-steps" role="tabpanel" aria-labelledby="tab-demo-steps-trigger">
-            <article class="card" aria-label="Pad Application - Steps">
-              <div class="card-header">
-                <h3 class="card-title purple">Step-by-Step Instructions</h3>
-                <p class="card-description">Follow these simple steps for proper pad application</p>
+          <!-- Step-by-step -->
+          <section class="card" aria-labelledby="pad-steps-title">
+            <div class="card-header">
+              <h2 class="card-title purple" id="pad-steps-title">Step-by-Step Instructions</h2>
+              <p class="card-description">Follow these simple steps for proper pad application</p>
+            </div>
+            <div class="card-content">
+              <ol class="steps-list">
+                <li class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-text"><p>Wash your hands thoroughly with soap and water.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+                <li class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-text"><p>Remove the pad from its wrapper and unfold it completely.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+                <li class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-text"><p>Peel off the backing strip to expose the adhesive.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+                <li class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-text"><p>Center the pad in your underwear with the adhesive side down.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+                <li class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-text"><p>Press down firmly to ensure the pad sticks properly.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+                <li class="step-item">
+                  <div class="step-number">6</div>
+                  <div class="step-text"><p>If the pad has wings, wrap them around the underwear.</p></div>
+                  <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
+                </li>
+              </ol>
+              <div class="reminder-box">
+                <h3>Remember</h3>
+                <p>It's completely normal to feel nervous the first few times. With practice, using a pad becomes quick and easy. Don't hesitate to ask a trusted adult for help if you need it!</p>
               </div>
-              <div class="card-content">
-                <ol class="steps-list">
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">1</div>
-                    <div class="step-text">Wash your hands thoroughly with soap and water</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">2</div>
-                    <div class="step-text">Remove the pad from its wrapper and unfold it completely</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">3</div>
-                    <div class="step-text">Peel off the backing strip to expose the adhesive</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">4</div>
-                    <div class="step-text">Center the pad in your underwear with the adhesive side down</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">5</div>
-                    <div class="step-text">Press down firmly to ensure the pad sticks properly</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                  <li class="step-item">
-                    <div class="step-number" aria-hidden="true">6</div>
-                    <div class="step-text">If the pad has wings, wrap them around the underwear</div>
-                    <i data-lucide="check-circle" class="check-icon" aria-hidden="true"></i>
-                  </li>
-                </ol>
-
-                <aside class="reminder-box" aria-label="Reassurance">
-                  <h4>Remember</h4>
-                  <p>It's normal to feel nervous the first few times. With practice, using a pad becomes quick and easy. Ask a trusted adult for help if you need it.</p>
-                </aside>
-              </div>
-            </article>
-          </div>
+            </div>
+          </section>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!--
-      SECTION: Products
-    -->
-    <section id="products" class="section section-products" aria-labelledby="products-heading">
-      <div class="container">
-        <div class="card">
+      <!-- TAB: Products -->
+      <article class="tab-content" id="products" role="tabpanel" aria-labelledby="tab-products" tabindex="0">
+        <section class="card" aria-labelledby="products-title">
           <div class="card-header">
-            <h2 id="products-heading" class="card-title pink">Menstrual Product Comparison</h2>
+            <h2 class="card-title pink" id="products-title">Menstrual Product Comparison</h2>
             <p class="card-description">Explore different options to find what works best for you</p>
           </div>
-        </div>
+        </section>
 
         <div class="products-grid">
-          <!-- Product: Disposable Pads -->
-          <article class="product-card" aria-labelledby="product-pads">
-            <div class="product-header">
-              <div class="product-title-wrap">
+          <!-- Disposable Pads -->
+          <section class="product-card" aria-labelledby="prod-pads">
+            <header class="product-header">
+              <div class="product-headline">
                 <i data-lucide="square" class="product-icon" aria-hidden="true"></i>
-                <h3 id="product-pads">Disposable Pads</h3>
+                <h3 id="prod-pads">Disposable Pads</h3>
               </div>
               <span class="product-badge" aria-label="Option 1">1</span>
-            </div>
+            </header>
             <p class="product-description">Absorbent pads that stick to underwear.</p>
+
             <div class="pros-cons">
               <div class="pros">
                 <h4>✓ Pros</h4>
@@ -225,26 +209,18 @@
                 </ul>
               </div>
             </div>
+
             <dl class="product-details">
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Cost</span>
-                </dt>
+                <dt><i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Cost</span></dt>
                 <dd class="detail-value">Low ($5–15/month)</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Eco-Friendly</span>
-                </dt>
+                <dt><i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Eco-Friendly</span></dt>
                 <dd class="detail-value">Low</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="clock" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Duration</span>
-                </dt>
+                <dt><i data-lucide="clock" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Duration</span></dt>
                 <dd class="detail-value">4–6 hours</dd>
               </div>
               <div class="detail-item">
@@ -252,18 +228,19 @@
                 <dd class="detail-value">High</dd>
               </div>
             </dl>
-          </article>
+          </section>
 
-          <!-- Product: Tampons -->
-          <article class="product-card" aria-labelledby="product-tampons">
-            <div class="product-header">
-              <div class="product-title-wrap">
+          <!-- Tampons -->
+          <section class="product-card" aria-labelledby="prod-tampons">
+            <header class="product-header">
+              <div class="product-headline">
                 <i data-lucide="circle" class="product-icon" aria-hidden="true"></i>
-                <h3 id="product-tampons">Tampons</h3>
+                <h3 id="prod-tampons">Tampons</h3>
               </div>
               <span class="product-badge" aria-label="Option 2">2</span>
-            </div>
+            </header>
             <p class="product-description">Absorbent cylinders inserted into the vagina.</p>
+
             <div class="pros-cons">
               <div class="pros">
                 <h4>✓ Pros</h4>
@@ -280,32 +257,24 @@
                 <ul>
                   <li>Insertion learning curve</li>
                   <li>Risk of TSS if left too long</li>
-                  <li>Not for 8+ hours overnight</li>
+                  <li>Not recommended for 8+ hours</li>
                   <li>May be uncomfortable for some</li>
                   <li>Creates waste</li>
                 </ul>
               </div>
             </div>
+
             <dl class="product-details">
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Cost</span>
-                </dt>
+                <dt><i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Cost</span></dt>
                 <dd class="detail-value">Low–Medium ($8–20/month)</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Eco-Friendly</span>
-                </dt>
+                <dt><i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Eco-Friendly</span></dt>
                 <dd class="detail-value">Low</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="clock" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Duration</span>
-                </dt>
+                <dt><i data-lucide="clock" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Duration</span></dt>
                 <dd class="detail-value">4–8 hours</dd>
               </div>
               <div class="detail-item">
@@ -313,60 +282,53 @@
                 <dd class="detail-value">High</dd>
               </div>
             </dl>
-          </article>
+          </section>
 
-          <!-- Product: Menstrual Cups -->
-          <article class="product-card" aria-labelledby="product-cups">
-            <div class="product-header">
-              <div class="product-title-wrap">
+          <!-- Cups -->
+          <section class="product-card" aria-labelledby="prod-cups">
+            <header class="product-header">
+              <div class="product-headline">
                 <i data-lucide="droplet" class="product-icon" aria-hidden="true"></i>
-                <h3 id="product-cups">Menstrual Cups</h3>
+                <h3 id="prod-cups">Menstrual Cups</h3>
               </div>
               <span class="product-badge" aria-label="Option 3">3</span>
-            </div>
+            </header>
             <p class="product-description">Reusable silicone cups that collect flow.</p>
+
             <div class="pros-cons">
               <div class="pros">
                 <h4>✓ Pros</h4>
                 <ul>
-                  <li>Eco‑friendly and cost‑effective</li>
-                  <li>Wear up to 12 hours</li>
-                  <li>No known TSS risk</li>
+                  <li>Eco-friendly and cost-effective</li>
+                  <li>Can wear up to 12 hours</li>
+                  <li>No TSS risk</li>
                   <li>Holds more than tampons/pads</li>
-                  <li>Lasts for years with proper care</li>
+                  <li>Lasts years with proper care</li>
                 </ul>
               </div>
               <div class="cons">
                 <h4>✗ Cons</h4>
                 <ul>
                   <li>Steeper learning curve</li>
-                  <li>Requires cleaning and sterilizing</li>
+                  <li>Must clean and sterilize</li>
                   <li>Higher upfront cost</li>
                   <li>May be messy to empty</li>
-                  <li>Not suitable for everyone</li>
+                  <li>Not for everyone</li>
                 </ul>
               </div>
             </div>
+
             <dl class="product-details">
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Cost</span>
-                </dt>
-                <dd class="detail-value">High upfront ($20–40), low long‑term</dd>
+                <dt><i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Cost</span></dt>
+                <dd class="detail-value">High upfront ($20–40), low long-term</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Eco-Friendly</span>
-                </dt>
-                <dd class="detail-value">Very high</dd>
+                <dt><i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Eco-Friendly</span></dt>
+                <dd class="detail-value">Very High</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="clock" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Duration</span>
-                </dt>
+                <dt><i data-lucide="clock" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Duration</span></dt>
                 <dd class="detail-value">Up to 12 hours</dd>
               </div>
               <div class="detail-item">
@@ -374,26 +336,27 @@
                 <dd class="detail-value">Medium</dd>
               </div>
             </dl>
-          </article>
+          </section>
 
-          <!-- Product: Period Underwear -->
-          <article class="product-card" aria-labelledby="product-underwear">
-            <div class="product-header">
-              <div class="product-title-wrap">
+          <!-- Period Underwear -->
+          <section class="product-card" aria-labelledby="prod-underwear">
+            <header class="product-header">
+              <div class="product-headline">
                 <i data-lucide="shirt" class="product-icon" aria-hidden="true"></i>
-                <h3 id="product-underwear">Period Underwear</h3>
+                <h3 id="prod-underwear">Period Underwear</h3>
               </div>
               <span class="product-badge" aria-label="Option 4">4</span>
-            </div>
-            <p class="product-description">Special underwear with built‑in absorbent layers.</p>
+            </header>
+            <p class="product-description">Special underwear with built-in absorbent layers.</p>
+
             <div class="pros-cons">
               <div class="pros">
                 <h4>✓ Pros</h4>
                 <ul>
                   <li>Feels like regular underwear</li>
-                  <li>No insertion or placement needed</li>
-                  <li>Reusable and eco‑friendly</li>
-                  <li>Great backup protection</li>
+                  <li>No insertion/placement needed</li>
+                  <li>Reusable and eco-friendly</li>
+                  <li>Good backup protection</li>
                   <li>Comfortable for daily wear</li>
                 </ul>
               </div>
@@ -401,33 +364,25 @@
                 <h4>✗ Cons</h4>
                 <ul>
                   <li>Higher upfront cost</li>
-                  <li>May not be enough for heavy days alone</li>
+                  <li>May not be enough on heavy days alone</li>
                   <li>Takes time to dry after washing</li>
-                  <li>Limited styles available</li>
+                  <li>Limited styles</li>
                   <li>May feel damp when full</li>
                 </ul>
               </div>
             </div>
+
             <dl class="product-details">
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Cost</span>
-                </dt>
+                <dt><i data-lucide="dollar-sign" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Cost</span></dt>
                 <dd class="detail-value">High ($15–40 per pair)</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Eco-Friendly</span>
-                </dt>
+                <dt><i data-lucide="leaf" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Eco-Friendly</span></dt>
                 <dd class="detail-value">High</dd>
               </div>
               <div class="detail-item">
-                <dt>
-                  <i data-lucide="clock" class="detail-icon" aria-hidden="true"></i>
-                  <span class="detail-label">Duration</span>
-                </dt>
+                <dt><i data-lucide="clock" class="detail-icon" aria-hidden="true"></i><span class="detail-label">Duration</span></dt>
                 <dd class="detail-value">6–12 hours</dd>
               </div>
               <div class="detail-item">
@@ -435,39 +390,36 @@
                 <dd class="detail-value">Medium</dd>
               </div>
             </dl>
-          </article>
+          </section>
         </div>
 
-        <aside class="recommendation-box" aria-label="Recommendations by lifestyle">
+        <aside class="recommendation-box" aria-label="Choosing a product">
           <h3>Choosing the Right Product for You</h3>
           <div class="recommendation-grid">
             <div class="recommendation-item">
               <h4>For Beginners</h4>
-              <p>Start with disposable pads — they're easiest to learn and widely available.</p>
+              <p>Start with disposable pads—they're easiest to learn with and widely available.</p>
             </div>
             <div class="recommendation-item">
-              <h4>For Active Lifestyles</h4>
-              <p>Tampons or menstrual cups offer the most freedom for sports and swimming.</p>
+              <h4>For Sports & Swimming</h4>
+              <p>Tampons or menstrual cups offer the most freedom during activity.</p>
             </div>
             <div class="recommendation-item">
-              <h4>For Eco‑Conscious</h4>
-              <p>Menstrual cups and period underwear are the most environmentally friendly options.</p>
+              <h4>For Eco-Conscious</h4>
+              <p>Menstrual cups and period underwear minimize waste and save money long term.</p>
             </div>
           </div>
         </aside>
-      </div>
-    </section>
+      </article>
 
-    <!--
-      SECTION: Hygiene
-    -->
-    <section id="hygiene" class="section section-hygiene" aria-labelledby="hygiene-heading">
-      <div class="container">
-        <article class="card">
+      <!-- TAB: Hygiene -->
+      <article class="tab-content" id="hygiene" role="tabpanel" aria-labelledby="tab-hygiene" tabindex="0">
+        <section class="card" aria-labelledby="hygiene-title">
           <div class="card-header">
-            <h2 id="hygiene-heading" class="card-title pink">Menstrual Hygiene Best Practices</h2>
+            <h2 class="card-title pink" id="hygiene-title">Menstrual Hygiene Best Practices</h2>
             <p class="card-description">Essential hygiene tips to keep you healthy and comfortable during your period</p>
           </div>
+
           <div class="card-content">
             <div class="hygiene-grid">
               <section class="hygiene-section" aria-labelledby="daily-care">
@@ -494,19 +446,19 @@
                   <li>Never flush pads or tampons down the toilet</li>
                   <li>Use designated disposal bins when available</li>
                   <li>Wash hands after disposing of products</li>
-                  <li>Keep disposal bags for when bins aren't available</li>
+                  <li>Keep disposal bags when bins aren't available</li>
                 </ul>
               </section>
 
               <section class="hygiene-section" aria-labelledby="clothing-comfort">
                 <div class="section-header">
                   <i data-lucide="shirt" class="section-icon" aria-hidden="true"></i>
-                  <h3 id="clothing-comfort">Clothing &amp; Comfort</h3>
+                  <h3 id="clothing-comfort">Clothing & Comfort</h3>
                 </div>
                 <ul class="hygiene-list">
                   <li>Wear breathable cotton underwear</li>
                   <li>Change underwear daily during your period</li>
-                  <li>Avoid tight‑fitting clothes on heavy flow days</li>
+                  <li>Avoid tight-fitting clothes during heavy flow days</li>
                   <li>Keep extra underwear and products with you</li>
                   <li>Wash period underwear in cold water</li>
                 </ul>
@@ -519,15 +471,15 @@
                 </div>
                 <ul class="hygiene-list">
                   <li>Don't use scented products on your vulva</li>
-                  <li>Avoid douching — it disrupts natural balance</li>
+                  <li>Avoid douching—it disrupts natural balance</li>
                   <li>Don't leave tampons in for more than 8 hours</li>
-                  <li>Avoid using super absorbent products unnecessarily</li>
+                  <li>Avoid using super-absorbent products unnecessarily</li>
                   <li>Don't ignore unusual odors or symptoms</li>
                 </ul>
               </section>
             </div>
 
-            <aside class="emergency-box" aria-label="Emergency kit suggestions">
+            <aside class="emergency-box" aria-label="Emergency kit essentials">
               <h3>Emergency Kit Essentials</h3>
               <div class="kit-items">
                 <div class="kit-item"><i data-lucide="square" class="kit-icon" aria-hidden="true"></i><span>Extra pads/tampons</span></div>
@@ -538,102 +490,88 @@
               </div>
             </aside>
           </div>
-        </article>
-      </div>
-    </section>
+        </section>
+      </article>
 
-    <!--
-      SECTION: Health Info
-    -->
-    <section id="health" class="section section-health" aria-labelledby="health-heading">
-      <div class="container">
-        <article class="card">
+      <!-- TAB: Health Info -->
+      <article class="tab-content" id="health" role="tabpanel" aria-labelledby="tab-health" tabindex="0">
+        <section class="card" aria-labelledby="health-title">
           <div class="card-header">
-            <h2 id="health-heading" class="card-title pink">Why Menstrual Hygiene Matters</h2>
+            <h2 class="card-title pink" id="health-title">Why Menstrual Hygiene Matters</h2>
             <p class="card-description">Understanding the importance of cleanliness during your menstrual cycle</p>
           </div>
           <div class="card-content">
             <div class="health-grid">
-              <section class="health-section" aria-labelledby="health-benefits">
-                <h3 id="health-benefits" class="section-title purple">Health Benefits</h3>
+              <section class="health-section">
+                <h3 class="section-title purple">Health Benefits</h3>
                 <ul class="benefit-list">
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Prevents bacterial and fungal infections</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Reduces risk of urinary tract infections (UTIs)</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Prevents toxic shock syndrome (TSS)</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Maintains healthy pH balance</span></li>
+                  <li><span class="bullet">•</span><span>Prevents bacterial and fungal infections</span></li>
+                  <li><span class="bullet">•</span><span>Reduces risk of urinary tract infections (UTIs)</span></li>
+                  <li><span class="bullet">•</span><span>Prevents toxic shock syndrome (TSS)</span></li>
+                  <li><span class="bullet">•</span><span>Maintains healthy pH balance</span></li>
                 </ul>
               </section>
-              <section class="health-section" aria-labelledby="comfort-confidence">
-                <h3 id="comfort-confidence" class="section-title purple">Comfort &amp; Confidence</h3>
+              <section class="health-section">
+                <h3 class="section-title purple">Comfort & Confidence</h3>
                 <ul class="benefit-list">
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Eliminates unpleasant odors</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Prevents skin irritation and rashes</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Allows you to stay active and social</span></li>
-                  <li><span class="bullet" aria-hidden="true">•</span><span>Boosts overall well‑being</span></li>
+                  <li><span class="bullet">•</span><span>Eliminates unpleasant odors</span></li>
+                  <li><span class="bullet">•</span><span>Prevents skin irritation and rashes</span></li>
+                  <li><span class="bullet">•</span><span>Allows you to stay active and social</span></li>
+                  <li><span class="bullet">•</span><span>Boosts overall well-being</span></li>
                 </ul>
               </section>
             </div>
 
-            <aside class="overall-health-box" aria-label="Overall health connection">
+            <aside class="overall-health-box">
               <h3>Connection to Overall Health</h3>
-              <p>Your menstrual health is closely linked to your overall well‑being. Good hygiene habits during your period help:</p>
+              <p>Your menstrual health is closely linked to your overall well-being. Good hygiene habits during your period help:</p>
               <ul>
-                <li>Maintain your body's natural defense systems</li>
-                <li>Support your immune system</li>
-                <li>Promote better sleep and mood</li>
-                <li>Build healthy lifelong habits</li>
+                <li>• Maintain your body's natural defense systems</li>
+                <li>• Support your immune system</li>
+                <li>• Promote better sleep and mood</li>
+                <li>• Build healthy lifelong habits</li>
               </ul>
             </aside>
 
-            <aside class="warning-box" role="alert">
+            <div class="warning-box" role="note" aria-label="Warning signs">
               <h4>Warning Signs to Watch For</h4>
               <p>See a healthcare provider if you experience: severe pain, very heavy bleeding, strong or fishy odors, fever, or unusual discharge. These could be signs of infection or other conditions.</p>
-            </aside>
+            </div>
           </div>
-        </article>
-      </div>
-    </section>
+        </section>
+      </article>
 
-    <!--
-      SECTION: Anatomy (with sub-tabs from your first version + citation figure block)
-    -->
-    <section id="anatomy" class="section section-anatomy" aria-labelledby="anatomy-heading">
-      <div class="container">
-        <div class="card">
+      <!-- TAB: Anatomy -->
+      <article class="tab-content" id="anatomy" role="tabpanel" aria-labelledby="tab-anatomy" tabindex="0">
+        <section class="card" aria-labelledby="anatomy-title">
           <div class="card-header">
-            <h2 id="anatomy-heading" class="card-title purple">Understanding Your Reproductive System</h2>
+            <h2 class="card-title purple" id="anatomy-title">Understanding Your Reproductive System</h2>
             <p class="card-description">Learn about the anatomy and science behind menstruation</p>
           </div>
+
           <div class="card-content">
-            <!-- Sub-tabs control -->
-            <div class="sub-tabs" role="tablist" aria-label="Anatomy sub-tabs">
-              <button class="subtab-button active" role="tab" aria-selected="true" aria-controls="sub-anatomy" id="sub-anatomy-trigger" onclick="openSubTab(event, 'sub-anatomy')">Anatomy</button>
-              <button class="subtab-button" role="tab" aria-selected="false" aria-controls="sub-cycle" id="sub-cycle-trigger" onclick="openSubTab(event, 'sub-cycle')">Menstrual Cycle</button>
-              <button class="subtab-button" role="tab" aria-selected="false" aria-controls="sub-hormones" id="sub-hormones-trigger" onclick="openSubTab(event, 'sub-hormones')">Hormones</button>
-            </div>
-
-            <!-- SUBTAB: Anatomy -->
-            <div id="sub-anatomy" class="subtab-content active" role="tabpanel" aria-labelledby="sub-anatomy-trigger">
-              <h3>Female Reproductive System Diagram</h3>
-
-              <!-- Your requested <figure> with citation -->
-              <figure class="diagram">
-                <img src="anatomy-diagram.jpg" alt="Female Reproductive System Diagram" class="diagram-image" />
-                <figcaption>
-                  Source:
-                  <a href="https://www.plannedparenthood.org/learn/health-and-wellness/reproductive-system" target="_blank" rel="noopener noreferrer">
-                    Planned Parenthood – Reproductive System
-                  </a>
-                </figcaption>
-              </figure>
+            <section class="anatomy-section">
+              <h3>Female Reproductive System</h3>
 
               <div class="anatomy-grid">
-                <section class="organ-functions" aria-labelledby="organ-functions-heading">
-                  <h4 id="organ-functions-heading">Organ Functions</h4>
+                <!-- Diagram + Cited Figure -->
+                <figure class="diagram">
+                  <img src="anatomy-diagram.png" alt="Female Reproductive System Diagram" class="diagram-image">
+                  <figcaption>
+                    Source:
+                    <a href="https://www.plannedparenthood.org/learn/health-and-wellness/reproductive-system" target="_blank" rel="noopener">
+                      Planned Parenthood – Reproductive System
+                    </a>
+                  </figcaption>
+                </figure>
+
+                <!-- Organ Functions -->
+                <div class="organ-functions">
+                  <h4>Organ Functions</h4>
                   <div class="organ-list">
                     <article class="organ">
                       <h5>Uterus</h5>
-                      <p>A pear‑shaped organ where a baby can grow. The inner lining (endometrium) thickens each month and is shed during menstruation if pregnancy doesn't occur.</p>
+                      <p>A pear-shaped organ where a baby can grow. The inner lining (endometrium) thickens each month and is shed during menstruation if pregnancy doesn't occur.</p>
                     </article>
                     <article class="organ">
                       <h5>Ovaries</h5>
@@ -652,174 +590,164 @@
                       <p>A muscular tube that connects the cervix to the outside of the body. This is where menstrual blood flows out.</p>
                     </article>
                   </div>
-                </section>
+                </div>
               </div>
-            </div>
+            </section>
 
-            <!-- SUBTAB: Menstrual Cycle -->
-            <div id="sub-cycle" class="subtab-content" role="tabpanel" aria-labelledby="sub-cycle-trigger">
+            <section class="anatomy-section">
               <h3>The Menstrual Cycle</h3>
-              <p>The menstrual cycle is a natural process that prepares your body for the possibility of pregnancy each month. It typically lasts 28 days but can range from 21–35 days.</p>
+              <p>The menstrual cycle prepares your body for a possible pregnancy each month. While it often lasts about 28 days, 21–35 days can be normal.</p>
+
               <div class="cycle-phases">
-                <article class="phase">
+                <div class="phase">
                   <h4>Days 1–5: Menstruation</h4>
                   <p>The lining of the uterus (endometrium) is shed through the vagina. This is your period.</p>
-                </article>
-                <article class="phase">
+                </div>
+                <div class="phase">
                   <h4>Days 1–13: Follicular Phase</h4>
-                  <p>Your body prepares to release an egg. Hormones signal the ovaries to prepare an egg for release.</p>
-                </article>
-                <article class="phase">
+                  <p>Your body prepares to release an egg. Hormones signal the ovaries to mature follicles.</p>
+                </div>
+                <div class="phase">
                   <h4>Day 14: Ovulation</h4>
                   <p>A mature egg is released from the ovary and travels down the fallopian tube.</p>
-                </article>
-                <article class="phase">
+                </div>
+                <div class="phase">
                   <h4>Days 15–28: Luteal Phase</h4>
-                  <p>The uterine lining thickens in preparation for a possible pregnancy. If pregnancy doesn't occur, the cycle begins again.</p>
+                  <p>The uterine lining thickens in preparation for a possible pregnancy. If pregnancy doesn't occur, the cycle starts again.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="key-organs">
+              <h3>Key Reproductive Organs</h3>
+              <div class="organs-grid">
+                <article class="organ">
+                  <h4>Ovaries</h4>
+                  <p>Store and release eggs; produce estrogen and progesterone.</p>
+                </article>
+                <article class="organ">
+                  <h4>Fallopian Tubes</h4>
+                  <p>Connect the ovaries to the uterus; common site of fertilization.</p>
+                </article>
+                <article class="organ">
+                  <h4>Uterus</h4>
+                  <p>Where a fertilized egg can implant and grow; lining sheds during menstruation.</p>
+                </article>
+                <article class="organ">
+                  <h4>Cervix</h4>
+                  <p>Lower part of the uterus opening to the vagina; cervical mucus changes with the cycle.</p>
+                </article>
+                <article class="organ">
+                  <h4>Vagina</h4>
+                  <p>Muscular canal from cervix to outside of the body; menstrual fluid exits here.</p>
                 </article>
               </div>
-            </div>
+            </section>
 
-            <!-- SUBTAB: Hormones -->
-            <div id="sub-hormones" class="subtab-content" role="tabpanel" aria-labelledby="sub-hormones-trigger">
-              <h3>Hormones in the Menstrual Cycle</h3>
-              <ul class="hormone-list">
-                <li><strong>Estrogen:</strong> Helps build up the uterine lining and regulates the menstrual cycle.</li>
-                <li><strong>Progesterone:</strong> Maintains the uterine lining and prepares it for pregnancy.</li>
-                <li><strong>FSH (Follicle Stimulating Hormone):</strong> Stimulates egg development in the ovaries.</li>
-                <li><strong>LH (Luteinizing Hormone):</strong> Triggers ovulation.</li>
+            <aside class="hormones-box">
+              <h3>Important Hormones</h3>
+              <ul>
+                <li><strong>Estrogen:</strong> Helps build the uterine lining and regulates the cycle</li>
+                <li><strong>Progesterone:</strong> Maintains the uterine lining after ovulation</li>
+                <li><strong>FSH (Follicle Stimulating Hormone):</strong> Stimulates egg development</li>
+                <li><strong>LH (Luteinizing Hormone):</strong> Triggers ovulation</li>
               </ul>
-            </div>
+            </aside>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </article>
 
-    <!--
-      SECTION: Q&A (kept from your first version, styled like the newer UI)
-    -->
-    <section id="qa" class="section section-qa" aria-labelledby="qa-heading">
-      <div class="container">
-        <article class="card">
+      <!-- TAB: Q&A with Doctor -->
+      <article class="tab-content" id="qa" role="tabpanel" aria-labelledby="tab-qa" tabindex="0">
+        <section class="card" aria-labelledby="qa-title">
           <div class="card-header">
-            <h2 id="qa-heading" class="card-title purple">Ask a Doctor — Q&amp;A with Dr. Vani Venkatachalam</h2>
+            <h2 class="card-title purple" id="qa-title">Ask a Doctor — Q&amp;A with Dr. Vani Venkatachalam</h2>
             <p class="card-description">Common questions answered by a pediatrician specializing in adolescent health</p>
           </div>
           <div class="card-content">
             <div class="qa-section">
-              <!-- Keep your 20 concise Q&A items from the first version -->
               <div class="qa-item">
-                <h3 class="question">1. Why are my periods so different from my friends?</h3>
-                <p class="answer">Every girl's body is different. If you have very heavy bleeding (soaking through a pad/tampon every hour for several hours), talk to a doctor about possible excessive menstrual bleeding.</p>
+                <h3 class="question">Q: At what age do most girls get their first period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Most girls get their first period between ages 10–15, with the average being around 12–13. Earlier or later can still be normal.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">2. Is it bad if I skip a month sometimes?</h3>
-                <p class="answer">Occasional skipped periods can be normal, especially in the first 1–2 years after starting. If it keeps happening or you're worried, seeing a physician can help.</p>
+                <h3 class="question">Q: How much bleeding is normal during a period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Flow varies. Roughly 30–40 ml over 3–7 days is typical. If you’re soaking a pad or tampon every hour for several hours, see a healthcare provider.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">3. Why does my mood get really bad before my period?</h3>
-                <p class="answer">That's likely PMS. If mood changes are severe or disruptive, it could be PMDD, which is treatable — talk to a healthcare provider.</p>
+                <h3 class="question">Q: Is it normal to have irregular periods when you first start?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Yes. It can take 1–2 years after your first period for cycles to settle into a pattern.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">4. I feel super tired during my period. Is that normal?</h3>
-                <p class="answer">Yes, fatigue is common. If it's significant, a clinician may check iron levels to rule out anemia.</p>
+                <h3 class="question">Q: What can I do about menstrual cramps?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Heat, light exercise, hydration, and over-the-counter pain relievers (with parent permission) often help. Severe pain that limits activity should be evaluated.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">5. Sometimes I get clumps or clots in my blood — is that bad?</h3>
-                <p class="answer">Small clots can be normal. Large clots or very heavy flow should be checked by a doctor.</p>
+                <h3 class="question">Q: Can I swim or exercise during my period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Absolutely. For swimming, tampons or menstrual cups work well. Activity can ease cramps and boost mood—listen to your body.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">6. Am I able to swim or participate in sports on my period?</h3>
-                <p class="answer">Yes! You shouldn't let your period hold you back. Tampons or cups are great for swimming and sports.</p>
+                <h3 class="question">Q: When should I see a doctor about my period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> If periods last longer than 7 days, are extremely heavy, cycles are <21 or >35 days apart after year one, pain is severe, or symptoms worry you.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">7. Why am I sometimes left with an odor when I am on my period?</h3>
-                <p class="answer">A mild smell can be normal. Strong, fishy, or unusual odors can be a sign to check in with a clinician.</p>
+                <h3 class="question">Q: Is it normal to feel emotional before or during my period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Yes—hormones can affect mood. If feelings strongly impact daily life, talk to a healthcare provider.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">8. Is it okay to be embarrassed to have my period?</h3>
-                <p class="answer">Totally normal — and you don't have to be. Periods are a healthy part of life; it helps to talk to trusted people.</p>
+                <h3 class="question">Q: What foods should I eat during my period?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Focus on iron-rich foods (leafy greens, beans, lean meats), calcium sources, and hydration. Limit excess caffeine and sugar.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">9. What do I do if I don't have any pads or tampons — what can I use?</h3>
-                <p class="answer">Use a clean, folded cloth as a temporary option. Wash with soap and water and dry fully (sun is great when possible) before reuse.</p>
+                <h3 class="question">Q: How do I know if I have a menstrual disorder?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> See a provider if there’s no period by 16, periods stop for 3+ months (and not pregnant), there’s heavy or between-period bleeding, or pain is severe.</p>
               </div>
 
               <div class="qa-item">
-                <h3 class="question">10. How do I stay clean if I cannot shower every day?</h3>
-                <p class="answer">Gently wash your vulva with warm water (mild soap if needed). Breathable underwear helps.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">11. Can I keep the same cloth or pad on all day?</h3>
-                <p class="answer">Try to change every 6–8 hours (or sooner if soaked) to prevent irritation and odor.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">12. What if I lack products or am too shy to ask?</h3>
-                <p class="answer">Many schools and clinics have free supplies. A teacher, nurse, or trusted adult can help you access them.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">13. Why do my cramps worsen some months?</h3>
-                <p class="answer">Cramps are uterine contractions. Stress, dehydration, and heavy flow can make them worse. Heat and light activity may help.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">14. Why do I get bloated or puffy before my period?</h3>
-                <p class="answer">Hormonal shifts cause temporary water retention. Hydration and reducing salty foods can help.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">15. What do I do if my period bleeds through my clothes at school?</h3>
-                <p class="answer">It happens! Tie a sweatshirt around your waist, change products, and keep spare underwear in your bag.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">16. Is it wrong that I use toilet paper instead of a pad for a while?</h3>
-                <p class="answer">It's okay briefly in a pinch, but switch to a proper pad as soon as you can for hygiene and comfort.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">17. What if I don't have a location where I can change my pad?</h3>
-                <p class="answer">Look for any private space (nurse’s office, single‑stall bathroom). A friend can stand guard if needed.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">18. How do I avoid rashes when changing isn't an option?</h3>
-                <p class="answer">A thin layer of petroleum jelly can reduce chafing. Wear looser clothing to allow airflow.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">19. What if I can't wash my hands before/after changing?</h3>
-                <p class="answer">Use hand sanitizer if available. Touch only the clean sides of products and wash with soap as soon as possible.</p>
-              </div>
-
-              <div class="qa-item">
-                <h3 class="question">20. How do I keep reusable cloths clean if I can’t dry them in the sun?</h3>
-                <p class="answer">Air‑dry in a well‑ventilated, clean space. Make sure they’re fully dry before reuse to prevent odors and bacteria growth.</p>
+                <h3 class="question">Q: Can stress affect my menstrual cycle?</h3>
+                <p class="answer"><strong>Dr. Venkatachalam:</strong> Yes—stress can make periods late, early, heavier, lighter, or skipped. Coping strategies can help regulate cycles.</p>
               </div>
             </div>
 
-            <!-- Doctor's note block from your newer version -->
-            <aside class="doctor-note" aria-label="Note from Dr. Venkatachalam">
+            <aside class="doctor-note" aria-label="Doctor note">
               <div class="note-header">
                 <i data-lucide="stethoscope" class="note-icon" aria-hidden="true"></i>
                 <h3>A Note from Dr. Venkatachalam</h3>
               </div>
-              <blockquote>
-                <p>“Remember, every person's menstrual experience is unique. Don't hesitate to ask questions and seek help when needed. Your menstrual health is an important part of your overall well‑being, and there's no question too small or embarrassing to ask a healthcare provider.”</p>
-              </blockquote>
+              <p>"Remember, every person's menstrual experience is unique. Don't hesitate to ask questions and seek help when needed. Your menstrual health is an important part of your overall well-being, and there's no question too small or embarrassing to ask a healthcare provider."</p>
             </aside>
           </div>
+        </section>
+      </article>
+    </section>
+
+    <!-- Supplemental Section (optional deep-dive; keeps page feeling full) -->
+    <section class="learn-more container" aria-label="Learn more">
+      <header>
+        <h2>Learn More & Resources</h2>
+        <p>Explore additional topics like tracking your cycle, choosing sizes, and talking with trusted adults.</p>
+      </header>
+
+      <div class="learn-grid">
+        <article class="learn-card">
+          <h3>Tracking Your Cycle</h3>
+          <p>Mark the first day of bleeding as Day 1. Track length, flow, symptoms, and mood. After a few months, you’ll spot patterns that help you prepare.</p>
+        </article>
+        <article class="learn-card">
+          <h3>Product Fit & Sizes</h3>
+          <p>Products come in different absorbencies and sizes. Start small, adjust as needed, and remember there’s no one “right” choice—comfort is key.</p>
+        </article>
+        <article class="learn-card">
+          <h3>Talking to Trusted Adults</h3>
+          <p>If you’re unsure or worried, reach out to a parent, guardian, school nurse, or healthcare provider. Questions are normal and welcome.</p>
         </article>
       </div>
     </section>
@@ -832,16 +760,65 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Inline Scripts: init icons and year; tab support (works even if script.js missing) -->
   <script>
-    // Initialize Lucide icons when the library loads
+    // Initialize Lucide icons
     window.addEventListener('DOMContentLoaded', function () {
       if (window.lucide && typeof window.lucide.createIcons === 'function') {
         window.lucide.createIcons();
       }
+      // Footer year
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // Basic tab controller (redundant with script.js but safe fallback)
+      var triggers = document.querySelectorAll('.tab-trigger');
+      var panels = document.querySelectorAll('.tab-content');
+      var links = document.querySelectorAll('[data-tab-link]');
+
+      function activateTab(name) {
+        triggers.forEach(function(btn) {
+          var on = btn.getAttribute('data-tab') === name;
+          btn.classList.toggle('active', on);
+          btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function(p) {
+          var on = p.id === name;
+          p.classList.toggle('active', on);
+          p.hidden = !on ? true : false;
+        });
+        // sync header links highlight (optional)
+        links.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('data-tab-link') === name);
+        });
+      }
+
+      triggers.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          activateTab(btn.getAttribute('data-tab'));
+          // push hash for deep-linking
+          var hash = '#' + btn.getAttribute('data-tab');
+          if (history && history.pushState) history.pushState(null, '', hash);
+        });
+      });
+
+      // Allow nav links to switch tabs
+      links.forEach(function(a){
+        a.addEventListener('click', function(e){
+          var t = a.getAttribute('data-tab-link');
+          if (t) {
+            activateTab(t);
+          }
+        });
+      });
+
+      // Deep link support via URL hash
+      var initial = location.hash ? location.hash.replace('#', '') : 'demo';
+      if (document.getElementById(initial)) activateTab(initial);
     });
   </script>
 
+  <!-- Your external script (optional; keep for extra behaviors) -->
   <script src="script.js" defer></script>
 </body>
 </html>
