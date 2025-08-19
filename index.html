@@ -1,4 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MenstruationEdu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>MenstruationEdu</h1>
+    <nav>
+      <ul>
+        <li><a href="#video">Video Demo</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#health">Health Info</a></li>
+        <li><a href="#anatomy">Anatomy</a></li>
+        <li><a href="#qanda">Q&A</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <!-- Anatomy Section -->
+  <section id="anatomy">
+    <h2>Understanding Your Reproductive System</h2>
+    <p>Learn about your body and how menstruation works</p>
+
+    <!-- Sub-tabs -->
+    <div class="sub-tabs">
+      <button class="subtab-button active" onclick="openSubTab(event, 'sub-anatomy')">Anatomy</button>
+      <button class="subtab-button" onclick="openSubTab(event, 'sub-cycle')">Menstrual Cycle</button>
+      <button class="subtab-button" onclick="openSubTab(event, 'sub-hormones')">Hormones</button>
+    </div>
+
+    <!-- Anatomy Content -->
+    <div id="sub-anatomy" class="subtab-content active">
+      <h3>Female Reproductive System Diagram</h3>
+      <img src="anatomy-diagram.jpg" alt="Female Reproductive System Diagram" width="400" />
+      <p class="citation">Source: [Insert your source here]</p>
+
+      <h3>Organ Functions</h3>
+      <p><strong>Uterus:</strong> A pear-shaped organ where a baby can grow...</p>
+      <p><strong>Ovaries:</strong> Small organs that store eggs and produce hormones...</p>
+      <p><strong>Fallopian Tubes:</strong> Tubes that connect the ovaries to the uterus...</p>
+      <p><strong>Cervix:</strong> Lower part of the uterus connecting to the vagina...</p>
+    </div>
+
+    <!-- Menstrual Cycle -->
+    <div id="sub-cycle" class="subtab-content">
+      <h3>Menstrual Cycle</h3>
+      <p>The menstrual cycle is typically 28 days but can range 21–35 days...</p>
+      <ul>
+        <li>Day 1–5: Menstruation (bleeding)</li>
+        <li>Day 6–14: Uterine lining builds</li>
+        <li>Day 14: Ovulation (egg released)</li>
+        <li>Day 15–28: Lining thickens, hormones change</li>
+      </ul>
+    </div>
+
+    <!-- Hormones -->
+    <div id="sub-hormones" class="subtab-content">
+      <h3>Hormones in the Menstrual Cycle</h3>
+      <p><strong>Estrogen:</strong> Builds uterine lining.</p>
+      <p><strong>Progesterone:</strong> Maintains lining after ovulation.</p>
+      <p><strong>FSH:</strong> Stimulates egg growth.</p>
+      <p><strong>LH:</strong> Triggers ovulation.</p>
+    </div>
+  </section>
+
+  <!-- Q&A Section -->
+  <section id="qanda">
+    <h2>Questions & Answers</h2>
+    <p>Answered by pediatrician Dr. Vani Venkatachalam of Care & Cure Pediatrics.</p>
+
+    <div class="qa">
+      <h4>1. Why are my periods so different from my friends?</h4>
+      <p>Every girl's body is different... excessive menstrual bleeding.</p>
+
+      <h4>2. Is it bad if I skip a month sometimes?</h4>
+      <p>Period skipping is normal... wouldn’t hurt to see a physician.</p>
+
+      <h4>3. Why does my mood get really bad before my period?</h4>
+      <p>This is probably PMS... could be PMDD which is treatable.</p>
+
+      <h4>4. I feel super tired during my period. Is that normal?</h4>
+      <p>Yes, that is normal... physician might check iron status.</p>
+
+      <h4>5. Sometimes I get clumps or clots in my blood—is that bad?</h4>
+      <p>Small clots can be normal... excessive bleeding requires doctor visit.</p>
+
+      <h4>6. Am I able to swim or participate in sports on my period?</h4>
+      <p>Yes, you shouldn't let your period hold you back...</p>
+
+      <h4>7. Why am I sometimes left with an odour when I am on my period?</h4>
+      <p>Some smell is okay... consult a doctor if strong/pungent.</p>
+
+      <h4>8. Is it okay to be embarrassed to have my period?</h4>
+      <p>Totally normal, but you don’t have to be...</p>
+
+      <h4>9. What do I do if I don't have any pads or tampons—what can I use?</h4>
+      <p>Use clean cloths... reuse safely with soap/water and sun-drying.</p>
+
+      <h4>10. How do I stay clean if I cannot shower every day?</h4>
+      <p>Gently wash your private area... breathable underwear helps.</p>
+
+      <h4>11. How do I keep the same cloth or pad on all day?</h4>
+      <p>Change every 6–8 hours... prolonged use risks infection.</p>
+
+      <h4>12. What do I do if I lack products or am too shy to ask?</h4>
+      <p>Free products available... seek help from teacher/nurse/adult.</p>
+
+      <h4>13. Why do my cramps worsen some months?</h4>
+      <p>Cramps = uterus contractions... heat packs + exercise help.</p>
+
+      <h4>14. Why do I get bloated or puffy before my period?</h4>
+      <p>Hormonal changes cause water retention... drink water, avoid salty foods.</p>
+
+      <h4>15. What do I do if my period bleeds through my clothes at school?</h4>
+      <p>Happens to everyone... tie sweatshirt, bring extra underwear.</p>
+
+      <h4>16. Is it wrong that I use toilet paper instead of a pad for a while?</h4>
+      <p>Short-term solution only... switch to proper pad ASAP.</p>
+
+      <h4>17. What if I don't have a location where I can change my pad?</h4>
+      <p>Find temporary private places... even ask a friend to stand guard.</p>
+
+      <h4>18. How do I avoid rashes when changing isn't an option?</h4>
+      <p>Use petroleum jelly... loose clothes help air circulation.</p>
+
+      <h4>19. What if I can't wash my hands before/after changing?</h4>
+      <p>Use sanitizer... touch only clean sides, wash as soon as possible.</p>
+
+      <h4>20. How do I keep reusable cloths clean if I can’t dry them in the sun?</h4>
+      <p>Air-dry in well-ventilated clean space... ensure fully dry before reuse.</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -760,3 +899,4 @@
 <script src="script.js" defer></script>
 </body>
 </html>
+
