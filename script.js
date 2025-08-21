@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('MenstruationEdu website initialized successfully!');
     console.log('Available tabs:', Array.from(tabTriggers).map(t => t.getAttribute('data-tab')));
 });
+
 function openSubTab(evt, tabId) {
   // Hide all subtabs
   const contents = document.querySelectorAll(".subtab-content");
