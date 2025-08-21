@@ -1,3 +1,4 @@
+
 /* CSS Variables from the original globals.css */
 :root {
   --font-size: 14px;
@@ -1133,7 +1134,23 @@ p {
   .main-title {
     font-size: 1.875rem;
   }
+}
+.diagram {
+  text-align: center;
+  margin: 1.5em 0;
+}
 
+.diagram img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.diagram figcaption {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5em;
 }
 /* Sub-tabs inside Anatomy */
 .sub-tabs {
@@ -1175,21 +1192,3 @@ p {
   color: #666;
   margin-top: 6px;
 }
-.diagram {
-  text-align: center;
-  margin: 1.5em 0;
-}
-
-.diagram img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.diagram figcaption {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 0.5em;
-}
-
