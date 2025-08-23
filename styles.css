@@ -1221,3 +1221,31 @@ p {
   margin-bottom: 0.5rem;
   color: #7b2cbf;
 }
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0.5em;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1em;
+  padding: 0.8em;
+  cursor: pointer;
+  color: #0077cc;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 0.8em;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* expands */
+  margin-top: 0.5em;
+}
+
