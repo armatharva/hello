@@ -143,3 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
     c.style.display = i === 0 ? "block" : "none";
   });
 });
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const faqItem = button.parentElement;
+    faqItem.classList.toggle("active");
+  });
+});
+
